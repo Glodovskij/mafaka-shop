@@ -1,3 +1,6 @@
+using Mafaka.Web.Services;
+using Mafaka.Web.Services.Interfaces;
+
 namespace Mafaka.Web
 {
     public class Program
@@ -8,6 +11,11 @@ namespace Mafaka.Web
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
+            builder.Services.AddHttpClient<IProductService, ProductService>();
+
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             var app = builder.Build();
 

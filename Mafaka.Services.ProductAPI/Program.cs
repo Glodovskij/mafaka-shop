@@ -1,5 +1,7 @@
 
+using AutoMapper;
 using Mafaka.Services.ProductAPI.DbContexts;
+using Mafaka.Services.ProductAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mafaka.Services.ProductAPI
@@ -19,6 +21,12 @@ namespace Mafaka.Services.ProductAPI
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+            builder.Services.AddSingleton(mapper);
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
