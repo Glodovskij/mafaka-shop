@@ -18,7 +18,7 @@ namespace Mafaka.Web.Controllers
             List<ProductDto> list = new();
             var response = await _productService.GetAllProductsAsync<ResponseDto>();
 
-            if(response != null && response.IsSuccess)
+            if (response != null && response.IsSuccess)
             {
                 list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
             }
@@ -32,10 +32,10 @@ namespace Mafaka.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ProductCreate(ProductDto productDto)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var response = await _productService.CreateProductAsync<ResponseDto>(productDto);
-                if(response != null && response.IsSuccess)
+                if (response != null && response.IsSuccess)
                 {
                     return RedirectToAction(nameof(ProductIndex));
                 }
@@ -66,15 +66,26 @@ namespace Mafaka.Web.Controllers
             }
             return View(productDto);
         }
-        [HttpDelete]
         public async Task<IActionResult> ProductDelete(int productId)
         {
-            var response = await _productService.DeleteProductAsync<ResponseDto>(productId);
+            var response = await _productService.GetProductByIdAsync<ResponseDto>(productId);
             if (response != null && response.IsSuccess)
+            {
+                var model = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+                return View(model);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductDelete(ProductDto productDto)
+        {
+            var response = await _productService.DeleteProductAsync<ResponseDto>(productDto.ProductId);
+            if (response.IsSuccess)
             {
                 return RedirectToAction(nameof(ProductIndex));
             }
-            return BadRequest();
+            return View(productDto);
         }
     }
 }
