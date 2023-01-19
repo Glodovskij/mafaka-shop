@@ -5,11 +5,13 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{9640AB28-CC95-4F53-A9A7-097D6B87DCEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafaka.Web", "Mafaka.Web\Mafaka.Web.csproj", "{0A35F4D0-E0FD-4378-A06B-D32EA63CCF3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafaka.Web", "Mafaka.Web\Mafaka.Web.csproj", "{0A35F4D0-E0FD-4378-A06B-D32EA63CCF3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{26FBC327-4737-477F-A2DF-D630801FCC64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafaka.Services.ProductAPI", "Mafaka.Services.ProductAPI\Mafaka.Services.ProductAPI.csproj", "{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafaka.Services.ProductAPI", "Mafaka.Services.ProductAPI\Mafaka.Services.ProductAPI.csproj", "{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mafaka.Services.Identity", "Mafaka.Services.Identity\Mafaka.Services.Identity.csproj", "{543781AA-A684-482D-A6C2-1E28615399C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543781AA-A684-482D-A6C2-1E28615399C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543781AA-A684-482D-A6C2-1E28615399C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543781AA-A684-482D-A6C2-1E28615399C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543781AA-A684-482D-A6C2-1E28615399C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0A35F4D0-E0FD-4378-A06B-D32EA63CCF3F} = {9640AB28-CC95-4F53-A9A7-097D6B87DCEF}
 		{3C765ED0-C3BD-4D3C-BA05-6FF881D6131B} = {26FBC327-4737-477F-A2DF-D630801FCC64}
+		{543781AA-A684-482D-A6C2-1E28615399C5} = {26FBC327-4737-477F-A2DF-D630801FCC64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F205496C-BB3E-4613-B6AD-BACEBB7C3B8A}
